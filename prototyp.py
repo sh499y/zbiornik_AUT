@@ -11,18 +11,24 @@ A = 1.5
 beta = 0.035
 #Czas symulacji
 t_sim = 3600.0
-# Kroko symulacji
+# Kroko symulacji /obkowa okres pr
 Tp = 0.1
+
+# minimalny poziom cieczy (pusty zbiornik) [m]
 h_min = 0.0
+# maksymalny poziom cieczy (pełny zbiornik) [m]
 h_max = 5.0
+ # minimalne natężenie dopływu (zawór zamknięty) [m^3/s]
 Qd_min = 0.0
+# maksymalne natężenie dopływu (zawór otwarty) [m^3/s]
 Qd_max = 0.075
 
+# Liczba krokow symulacji
 N = int(t_sim / Tp)
 
 
 # Symulacja (czysty Python, bez importów)
-t = [n * Tp for n in range(N + 1)]
+t: list[float] = [n * Tp for n in range(N + 1)]
 h = [0.0] * (N + 1)
 Qd = [Qd_max] * (N + 1)
 Qo = [0.0] * (N + 1)
